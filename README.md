@@ -1,6 +1,6 @@
 # NAME
 
-golger - riemann log cat from the shell
+loggmann - riemann log cat from the shell
 
 # DESCRIPTION
 
@@ -10,32 +10,32 @@ This cli tool will subscribe to a riemann websocket and dump events to the conso
 
 Dump sshd logs from node01:
 
-    golger node01 sshd
+    loggmann node01 sshd
 
 Dump all events from node01:
 
-    golger node01
+    loggmann node01
 
 Full query:
 
-    golger -q 'host = "node01" and tagged "syslog"'
+    loggmann -q 'host = "node01" and tagged "syslog"'
 
 Explicit server:
 
-    golger -s myriemann:5556 -q 'state != "ok"'
+    loggmann -s myriemann:5556 -q 'state != "ok"'
 
 Using server defined in configfile:
 
-    golger -c /etc/golger.conf ...
+    loggmann -c /etc/loggmann.conf ...
 
 Again but using environment variable in b\*sh:
 
-    GOLGER_CONFIG_FILE=/etc/golger.yaml golger node01
+    LOGGMANN_CONFIG_FILE=/etc/loggmann.yaml loggmann node01
 
 Using explicit host/service lookup:
 
-    golger -H node02 -S httpd
+    loggmann -H node02 -S httpd
 
 Help:
 
-    golger -h
+    loggmann -h
