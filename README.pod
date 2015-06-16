@@ -36,6 +36,14 @@ Using explicit host/service lookup:
 
     loggmann -H node02 -S httpd
 
+Change default logging format:
+
+    loggmann node03 -f "time host service metric"
+
+Output raw (json):
+
+    loggmann node04 -r
+
 Help:
 
     loggmann -h

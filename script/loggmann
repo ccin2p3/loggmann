@@ -29,6 +29,8 @@ my ($opt, $usage) = describe_options(
 	[ 'help|h', 'Print help' ],
 	[ 'debug|d', 'Toggle debugging' ],
 	[ 'configfile|c=s', 'Path to configfile', { default => $default_config_file } ],
+	[ 'format|f=s', 'logformat. Defaults to "time host service description"' ],
+	[ 'rawformat|r', 'log raw json data. supersedes --format', { default => 0 } ],
 );
 
 if ($opt -> help) {
@@ -101,7 +103,16 @@ my $query = uri_escape(join " and ", @query);
 my $connect_info = 'ws://'.$server."/index?subscribe=true&query=${query}";
 warn "Opening `$connect_info`\n" if  $opt->debug;
 
-Golger::connect ($connect_info);
+if ($opt->rawformat) {
+	Golger::connect ($connect_info, sub { print $_[0], "\n" })
+} else {
+	if ($opt->format) {
+		my @format = split (/\s+/, $opt->format) or die "format specification error";
+		Golger::connect ($connect_info, \@format);
+	} else {
+		Golger::connect ($connect_info);
+	}
+}
 
 =head1 NAME
 
@@ -140,6 +151,14 @@ Again but using environment variable in b*sh:
 Using explicit host/service lookup:
 
     loggmann -H node02 -S httpd
+
+Change default logging format:
+
+    loggmann node03 -f "time host service metric"
+
+Output raw (json):
+
+    loggmann node04 -r
 
 Help:
 
