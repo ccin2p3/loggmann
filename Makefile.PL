@@ -8,6 +8,7 @@ author   'Fabien Wernli <wernli at in2p3.fr>';
 license  'perl';
 all_from 'lib/Golger.pm';
 abstract_from 'script/loggmann';
+readme_pod_from 'script/loggmann';
 
 # REQUIRES
 build_requires 'Pod::Markdown' => 0;
@@ -19,10 +20,5 @@ recommends 'Config::Any' => 0;
 
 # CLI
 install_script $_ for qw/loggmann/;
-
-makemaker_args(
-	PREREQ_FATAL => 1,
-	dist => { PREOP => 'pod2markdown script/loggmann > README.md' },
-);
 
 WriteAll;

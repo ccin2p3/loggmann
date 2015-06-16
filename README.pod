@@ -1,12 +1,12 @@
-# NAME
+=head1 NAME
 
 loggmann - riemann log cat from the shell
 
-# DESCRIPTION
+=head1 DESCRIPTION
 
 This cli tool will subscribe to a riemann websocket and dump events to the console.
 
-# SYNOPSIS
+=head1 SYNOPSIS
 
 Dump sshd logs from node01:
 
@@ -28,7 +28,7 @@ Using server defined in configfile:
 
     loggmann -c /etc/loggmann.conf ...
 
-Again but using environment variable in b\*sh:
+Again but using environment variable in b*sh:
 
     LOGGMANN_CONFIG_FILE=/etc/loggmann.yaml loggmann node01
 
@@ -39,3 +39,7 @@ Using explicit host/service lookup:
 Help:
 
     loggmann -h
+
+
+=cut
+
