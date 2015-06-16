@@ -83,9 +83,10 @@ if ($na > 2) {
 	warn "error in arg list";
 	exit 2;
 }
-if ($na == 1) {
+if ($na > 0) {
 	push @query, 'host = "'.$ARGV[0].'"';
-} elsif ($na == 2) {
+}
+if ($na == 2) {
 	push @query, 'service = "'.$ARGV[1].'"';
 }
 
