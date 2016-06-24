@@ -7,7 +7,7 @@ use 5.008002;
 use AnyEvent::WebSocket::Client;
 use JSON::Any;
 
-our $VERSION = '0.1';
+our $VERSION = version->parse('v0.1.0');
 
 sub connect {
 	my $connect_info = shift;

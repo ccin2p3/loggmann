@@ -13,9 +13,11 @@ readme_pod_from 'script/loggmann';
 # REQUIRES
 build_requires 'Pod::Markdown' => 0;
 requires 'AnyEvent::WebSocket::Client' => 0;
-requires 'JSON::Any' => 0;
 requires 'Getopt::Long::Descriptive' => 0;
+requires 'JSON::Any' => 0;
 requires 'URI::Escape' => 0;
+requires 'version' => 0;
+
 recommends 'Config::Any' => 0;
 
 # CLI
